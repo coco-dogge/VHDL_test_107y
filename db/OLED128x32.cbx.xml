@@ -1,0 +1,15 @@
+<?xml version="1.0" ?>
+<LOG_ROOT>
+	<PROJECT NAME="OLED128x32">
+		<CBX_INST_ENTRY INSTANCE_NAME="|OLED128x32|lpm_divide:Div2" CBX_FILE_NAME="lpm_divide_rhm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|OLED128x32|lpm_divide:Mod1" CBX_FILE_NAME="lpm_divide_bbm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|OLED128x32|lpm_divide:Mod5" CBX_FILE_NAME="lpm_divide_bbm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|OLED128x32|lpm_divide:Div1" CBX_FILE_NAME="lpm_divide_4jm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|OLED128x32|lpm_divide:Div3" CBX_FILE_NAME="lpm_divide_nhm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|OLED128x32|lpm_divide:Mod0" CBX_FILE_NAME="lpm_divide_dbm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|OLED128x32|lpm_divide:Mod2" CBX_FILE_NAME="lpm_divide_bbm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|OLED128x32|lpm_divide:Mod4" CBX_FILE_NAME="lpm_divide_bbm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|OLED128x32|lpm_divide:Div0" CBX_FILE_NAME="lpm_divide_8jm.tdf"/>
+		<CBX_INST_ENTRY INSTANCE_NAME="|OLED128x32|lpm_divide:Mod3" CBX_FILE_NAME="lpm_divide_bbm.tdf"/>
+	</PROJECT>
+</LOG_ROOT>

@@ -1,0 +1,1241 @@
+Analysis & Synthesis report for OLED128x32
+Wed Oct 16 10:41:41 2019
+Quartus II Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |OLED128x32|TSL2561:u1|IICState
+  9. State Machine - |OLED128x32|TSL2561:u1|i2c_master:u0|state
+ 10. State Machine - |OLED128x32|i2c_master:u0|state
+ 11. Registers Removed During Synthesis
+ 12. Removed Registers Triggering Further Register Optimizations
+ 13. General Register Statistics
+ 14. Inverted Register Statistics
+ 15. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 16. Parameter Settings for User Entity Instance: i2c_master:u0
+ 17. Parameter Settings for User Entity Instance: TSL2561:u1|i2c_master:u0
+ 18. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0
+ 19. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod5
+ 20. Parameter Settings for Inferred Entity Instance: lpm_divide:Div0
+ 21. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1
+ 22. Parameter Settings for Inferred Entity Instance: lpm_divide:Div3
+ 23. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod4
+ 24. Parameter Settings for Inferred Entity Instance: lpm_divide:Div2
+ 25. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3
+ 26. Parameter Settings for Inferred Entity Instance: lpm_divide:Div1
+ 27. Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2
+ 28. Port Connectivity Checks: "up_mdu2:u5"
+ 29. Port Connectivity Checks: "DHT11:u2"
+ 30. Port Connectivity Checks: "TSL2561:u1|i2c_master:u0"
+ 31. Port Connectivity Checks: "i2c_master:u0"
+ 32. Analysis & Synthesis Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 1991-2010 Altera Corporation
+Your use of Altera Corporation's design tools, logic functions 
+and other software and tools, and its AMPP partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Altera Program License 
+Subscription Agreement, Altera MegaCore Function License 
+Agreement, or other applicable license agreement, including, 
+without limitation, that your use is for the sole purpose of 
+programming logic devices manufactured by Altera and sold by 
+Altera or its authorized distributors.  Please refer to the 
+applicable agreement for further details.
+
+
+
++-----------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                      ;
++------------------------------------+----------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Oct 16 10:41:40 2019        ;
+; Quartus II Version                 ; 9.1 Build 350 03/24/2010 SP 2 SJ Web Edition ;
+; Revision Name                      ; OLED128x32                                   ;
+; Top-level Entity Name              ; OLED128x32                                   ;
+; Family                             ; Cyclone III                                  ;
+; Total logic elements               ; 2,561                                        ;
+;     Total combinational functions  ; 2,490                                        ;
+;     Dedicated logic registers      ; 589                                          ;
+; Total registers                    ; 589                                          ;
+; Total pins                         ; 74                                           ;
+; Total virtual pins                 ; 0                                            ;
+; Total memory bits                  ; 0                                            ;
+; Embedded Multiplier 9-bit elements ; 0                                            ;
+; Total PLLs                         ; 0                                            ;
++------------------------------------+----------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                                        ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                                     ; Setting            ; Default Value      ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                                     ; EP3C16Q240C8       ;                    ;
+; Top-level entity name                                                      ; OLED128x32         ; OLED128x32         ;
+; Family name                                                                ; Cyclone III        ; Stratix II         ;
+; Use smart compilation                                                      ; Off                ; Off                ;
+; Enable parallel Assembler and TimeQuest Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                                ; Off                ; Off                ;
+; Restructure Multiplexers                                                   ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                                        ; Off                ; Off                ;
+; Preserve fewer node names                                                  ; On                 ; On                 ;
+; Disable OpenCore Plus hardware evaluation                                  ; Off                ; Off                ;
+; Verilog Version                                                            ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                               ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                                   ; Auto               ; Auto               ;
+; Safe State Machine                                                         ; Off                ; Off                ;
+; Extract Verilog State Machines                                             ; On                 ; On                 ;
+; Extract VHDL State Machines                                                ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                          ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                                 ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                             ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                                    ; On                 ; On                 ;
+; Parallel Synthesis                                                         ; On                 ; On                 ;
+; DSP Block Balancing                                                        ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                                         ; On                 ; On                 ;
+; Power-Up Don't Care                                                        ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                               ; Off                ; Off                ;
+; Remove Duplicate Registers                                                 ; On                 ; On                 ;
+; Ignore CARRY Buffers                                                       ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                                     ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                                      ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                                  ; Off                ; Off                ;
+; Ignore LCELL Buffers                                                       ; Off                ; Off                ;
+; Ignore SOFT Buffers                                                        ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                             ; Off                ; Off                ;
+; Optimization Technique                                                     ; Balanced           ; Balanced           ;
+; Carry Chain Length                                                         ; 70                 ; 70                 ;
+; Auto Carry Chains                                                          ; On                 ; On                 ;
+; Auto Open-Drain Pins                                                       ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                                      ; Off                ; Off                ;
+; Auto ROM Replacement                                                       ; On                 ; On                 ;
+; Auto RAM Replacement                                                       ; On                 ; On                 ;
+; Auto DSP Block Replacement                                                 ; On                 ; On                 ;
+; Auto Shift Register Replacement                                            ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                              ; On                 ; On                 ;
+; Strict RAM Replacement                                                     ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                          ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                                     ; Off                ; Off                ;
+; Auto RAM Block Balancing                                                   ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                          ; Off                ; Off                ;
+; Auto Resource Sharing                                                      ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                                         ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                              ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing                        ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                          ; Off                ; Off                ;
+; Timing-Driven Synthesis                                                    ; On                 ; On                 ;
+; Show Parameter Settings Tables in Synthesis Report                         ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                                         ; Off                ; Off                ;
+; Synchronization Register Chain Length                                      ; 2                  ; 2                  ;
+; PowerPlay Power Optimization                                               ; Normal compilation ; Normal compilation ;
+; HDL message level                                                          ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                            ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report                   ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report                  ; 100                ; 100                ;
+; Clock MUX Protection                                                       ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                                ; Off                ; Off                ;
+; Block Design Naming                                                        ; Auto               ; Auto               ;
+; SDC constraint protection                                                  ; Off                ; Off                ;
+; Synthesis Effort                                                           ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal               ; On                 ; On                 ;
+; Analysis & Synthesis Message Level                                         ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                                ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                                     ; On                 ; On                 ;
++----------------------------------------------------------------------------+--------------------+--------------------+
+
+
+Parallel compilation was disabled, but you have multiple processors available. Enable parallel compilation to reduce compilation time.
++-------------------------------------+
+; Parallel Compilation                ;
++----------------------------+--------+
+; Processors                 ; Number ;
++----------------------------+--------+
+; Number detected on machine ; 4      ;
+; Maximum allowed            ; 1      ;
++----------------------------+--------+
+
+
++----------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                             ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                   ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------+
+; OLED128x32.vhd                   ; yes             ; User VHDL File               ; E:/м美/10-10 107材肈 -2/OLED128x32.vhd                      ;
+; i2c_master.vhd                   ; yes             ; User VHDL File               ; E:/м美/10-10 107材肈 -2/i2c_master.vhd                      ;
+; tsl2561.vhd                      ; yes             ; Auto-Found VHDL File         ; E:/м美/10-10 107材肈 -2/tsl2561.vhd                         ;
+; dht11.vhd                        ; yes             ; Auto-Found VHDL File         ; E:/м美/10-10 107材肈 -2/dht11.vhd                           ;
+; dht11_basic.vhd                  ; yes             ; Auto-Found VHDL File         ; E:/м美/10-10 107材肈 -2/dht11_basic.vhd                     ;
+; up_mdu2.vhd                      ; yes             ; Auto-Found VHDL File         ; E:/м美/10-10 107材肈 -2/up_mdu2.vhd                         ;
+; up_mdu3.vhd                      ; yes             ; Auto-Found VHDL File         ; E:/м美/10-10 107材肈 -2/up_mdu3.vhd                         ;
+; up_mdu4.vhd                      ; yes             ; Auto-Found VHDL File         ; E:/м美/10-10 107材肈 -2/up_mdu4.vhd                         ;
+; up_mdu5.vhd                      ; yes             ; Auto-Found VHDL File         ; E:/м美/10-10 107材肈 -2/up_mdu5.vhd                         ;
+; cmd_rom.v                        ; yes             ; Auto-Found Verilog HDL File  ; E:/м美/10-10 107材肈 -2/cmd_rom.v                           ;
+; lpm_divide.tdf                   ; yes             ; Megafunction                 ; c:/altera/91sp2/quartus/libraries/megafunctions/lpm_divide.tdf ;
+; db/lpm_divide_dbm.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/lpm_divide_dbm.tdf               ;
+; db/sign_div_unsign_bnh.tdf       ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/sign_div_unsign_bnh.tdf          ;
+; db/alt_u_div_19f.tdf             ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/alt_u_div_19f.tdf                ;
+; db/add_sub_unc.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/add_sub_unc.tdf                  ;
+; db/add_sub_vnc.tdf               ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/add_sub_vnc.tdf                  ;
+; db/lpm_divide_bbm.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/lpm_divide_bbm.tdf               ;
+; db/sign_div_unsign_9nh.tdf       ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/sign_div_unsign_9nh.tdf          ;
+; db/alt_u_div_t8f.tdf             ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/alt_u_div_t8f.tdf                ;
+; db/lpm_divide_8jm.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/lpm_divide_8jm.tdf               ;
+; db/lpm_divide_nhm.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/lpm_divide_nhm.tdf               ;
+; db/sign_div_unsign_olh.tdf       ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/sign_div_unsign_olh.tdf          ;
+; db/alt_u_div_r5f.tdf             ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/alt_u_div_r5f.tdf                ;
+; db/lpm_divide_rhm.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/lpm_divide_rhm.tdf               ;
+; db/sign_div_unsign_slh.tdf       ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/sign_div_unsign_slh.tdf          ;
+; db/alt_u_div_26f.tdf             ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/alt_u_div_26f.tdf                ;
+; db/lpm_divide_4jm.tdf            ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/lpm_divide_4jm.tdf               ;
+; db/sign_div_unsign_5nh.tdf       ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/sign_div_unsign_5nh.tdf          ;
+; db/alt_u_div_l8f.tdf             ; yes             ; Auto-Generated Megafunction  ; E:/м美/10-10 107材肈 -2/db/alt_u_div_l8f.tdf                ;
++----------------------------------+-----------------+------------------------------+----------------------------------------------------------------+
+
+
++--------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary            ;
++---------------------------------------------+----------+
+; Resource                                    ; Usage    ;
++---------------------------------------------+----------+
+; Estimated Total logic elements              ; 2,561    ;
+;                                             ;          ;
+; Total combinational functions               ; 2490     ;
+; Logic element usage by number of LUT inputs ;          ;
+;     -- 4 input functions                    ; 912      ;
+;     -- 3 input functions                    ; 559      ;
+;     -- <=2 input functions                  ; 1019     ;
+;                                             ;          ;
+; Logic elements by mode                      ;          ;
+;     -- normal mode                          ; 1828     ;
+;     -- arithmetic mode                      ; 662      ;
+;                                             ;          ;
+; Total registers                             ; 589      ;
+;     -- Dedicated logic registers            ; 589      ;
+;     -- I/O registers                        ; 0        ;
+;                                             ;          ;
+; I/O pins                                    ; 74       ;
+; Maximum fan-out node                        ; ck~input ;
+; Maximum fan-out                             ; 230      ;
+; Total fan-out                               ; 9315     ;
+; Average fan-out                             ; 2.88     ;
++---------------------------------------------+----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                                             ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------+--------------+
+; Compilation Hierarchy Node             ; LC Combinationals ; LC Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                                                         ; Library Name ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------+--------------+
+; |OLED128x32                            ; 2490 (717)        ; 589 (304)    ; 0           ; 0            ; 0       ; 0         ; 74   ; 0            ; |OLED128x32                                                                                                 ; work         ;
+;    |DHT11:u2|                          ; 296 (36)          ; 110 (28)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|DHT11:u2                                                                                        ;              ;
+;       |DHT11_BASIC:u0|                 ; 260 (260)         ; 82 (82)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|DHT11:u2|DHT11_BASIC:u0                                                                         ;              ;
+;    |TSL2561:u1|                        ; 215 (108)         ; 128 (79)     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|TSL2561:u1                                                                                      ;              ;
+;       |i2c_master:u0|                  ; 107 (107)         ; 49 (49)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|TSL2561:u1|i2c_master:u0                                                                        ;              ;
+;    |cmd_rom:u9|                        ; 4 (4)             ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|cmd_rom:u9                                                                                      ;              ;
+;    |i2c_master:u0|                     ; 98 (98)           ; 40 (40)      ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|i2c_master:u0                                                                                   ;              ;
+;    |lpm_divide:Div1|                   ; 123 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div1                                                                                 ;              ;
+;       |lpm_divide_4jm:auto_generated|  ; 123 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div1|lpm_divide_4jm:auto_generated                                                   ;              ;
+;          |sign_div_unsign_5nh:divider| ; 123 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div1|lpm_divide_4jm:auto_generated|sign_div_unsign_5nh:divider                       ;              ;
+;             |alt_u_div_l8f:divider|    ; 123 (123)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div1|lpm_divide_4jm:auto_generated|sign_div_unsign_5nh:divider|alt_u_div_l8f:divider ;              ;
+;    |lpm_divide:Div2|                   ; 157 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div2                                                                                 ;              ;
+;       |lpm_divide_rhm:auto_generated|  ; 157 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div2|lpm_divide_rhm:auto_generated                                                   ;              ;
+;          |sign_div_unsign_slh:divider| ; 157 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div2|lpm_divide_rhm:auto_generated|sign_div_unsign_slh:divider                       ;              ;
+;             |alt_u_div_26f:divider|    ; 157 (157)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div2|lpm_divide_rhm:auto_generated|sign_div_unsign_slh:divider|alt_u_div_26f:divider ;              ;
+;    |lpm_divide:Div3|                   ; 134 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div3                                                                                 ;              ;
+;       |lpm_divide_nhm:auto_generated|  ; 134 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div3|lpm_divide_nhm:auto_generated                                                   ;              ;
+;          |sign_div_unsign_olh:divider| ; 134 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div3|lpm_divide_nhm:auto_generated|sign_div_unsign_olh:divider                       ;              ;
+;             |alt_u_div_r5f:divider|    ; 134 (134)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Div3|lpm_divide_nhm:auto_generated|sign_div_unsign_olh:divider|alt_u_div_r5f:divider ;              ;
+;    |lpm_divide:Mod0|                   ; 55 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod0                                                                                 ;              ;
+;       |lpm_divide_dbm:auto_generated|  ; 55 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod0|lpm_divide_dbm:auto_generated                                                   ;              ;
+;          |sign_div_unsign_bnh:divider| ; 55 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod0|lpm_divide_dbm:auto_generated|sign_div_unsign_bnh:divider                       ;              ;
+;             |alt_u_div_19f:divider|    ; 55 (55)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod0|lpm_divide_dbm:auto_generated|sign_div_unsign_bnh:divider|alt_u_div_19f:divider ;              ;
+;    |lpm_divide:Mod2|                   ; 37 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod2                                                                                 ;              ;
+;       |lpm_divide_bbm:auto_generated|  ; 37 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod2|lpm_divide_bbm:auto_generated                                                   ;              ;
+;          |sign_div_unsign_9nh:divider| ; 37 (0)            ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod2|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider                       ;              ;
+;             |alt_u_div_t8f:divider|    ; 37 (37)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod2|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider ;              ;
+;    |lpm_divide:Mod3|                   ; 150 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod3                                                                                 ;              ;
+;       |lpm_divide_bbm:auto_generated|  ; 150 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod3|lpm_divide_bbm:auto_generated                                                   ;              ;
+;          |sign_div_unsign_9nh:divider| ; 150 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod3|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider                       ;              ;
+;             |alt_u_div_t8f:divider|    ; 150 (150)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod3|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider ;              ;
+;    |lpm_divide:Mod4|                   ; 224 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod4                                                                                 ;              ;
+;       |lpm_divide_bbm:auto_generated|  ; 224 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod4|lpm_divide_bbm:auto_generated                                                   ;              ;
+;          |sign_div_unsign_9nh:divider| ; 224 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod4|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider                       ;              ;
+;             |alt_u_div_t8f:divider|    ; 224 (224)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod4|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider ;              ;
+;    |lpm_divide:Mod5|                   ; 272 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod5                                                                                 ;              ;
+;       |lpm_divide_bbm:auto_generated|  ; 272 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod5|lpm_divide_bbm:auto_generated                                                   ;              ;
+;          |sign_div_unsign_9nh:divider| ; 272 (0)           ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod5|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider                       ;              ;
+;             |alt_u_div_t8f:divider|    ; 272 (272)         ; 0 (0)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|lpm_divide:Mod5|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider ;              ;
+;    |up_mdu4:u7|                        ; 7 (7)             ; 6 (6)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|up_mdu4:u7                                                                                      ;              ;
+;    |up_mdu5:u8|                        ; 1 (1)             ; 1 (1)        ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |OLED128x32|up_mdu5:u8                                                                                      ;              ;
++----------------------------------------+-------------------+--------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------------------------------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++-------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |OLED128x32|TSL2561:u1|IICState                                                                                                                                                                                                                                                             ;
++---------------------+--------------+--------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+; Name                ; IICState.s11 ; IICState.s10 ; IICState.s9 ; IICState.s8 ; IICState.s7 ; IICState.s6 ; IICState.s5 ; IICState.s4 ; IICState.s3 ; IICState.s2 ; IICState.s1 ; IICState.s0 ; IICState.POWER_ON_5 ; IICState.POWER_ON_4 ; IICState.POWER_ON_3 ; IICState.POWER_ON_2 ; IICState.POWER_ON_1 ;
++---------------------+--------------+--------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+; IICState.POWER_ON_1 ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 0                   ;
+; IICState.POWER_ON_2 ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 1                   ; 1                   ;
+; IICState.POWER_ON_3 ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 1                   ; 0                   ; 1                   ;
+; IICState.POWER_ON_4 ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 1                   ; 0                   ; 0                   ; 1                   ;
+; IICState.POWER_ON_5 ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s0         ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s1         ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s2         ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s3         ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s4         ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s5         ; 0            ; 0            ; 0           ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s6         ; 0            ; 0            ; 0           ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s7         ; 0            ; 0            ; 0           ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s8         ; 0            ; 0            ; 0           ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s9         ; 0            ; 0            ; 1           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s10        ; 0            ; 1            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
+; IICState.s11        ; 1            ; 0            ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0           ; 0                   ; 0                   ; 0                   ; 0                   ; 1                   ;
++---------------------+--------------+--------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+-------------+---------------------+---------------------+---------------------+---------------------+---------------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |OLED128x32|TSL2561:u1|i2c_master:u0|state                                                                                       ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; Name           ; state.stop ; state.mstr_ack ; state.slv_ack2 ; state.rd ; state.wr ; state.slv_ack1 ; state.command ; state.start ; state.ready ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; state.ready    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 0           ;
+; state.start    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 1           ; 1           ;
+; state.command  ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 1             ; 0           ; 1           ;
+; state.slv_ack1 ; 0          ; 0              ; 0              ; 0        ; 0        ; 1              ; 0             ; 0           ; 1           ;
+; state.wr       ; 0          ; 0              ; 0              ; 0        ; 1        ; 0              ; 0             ; 0           ; 1           ;
+; state.rd       ; 0          ; 0              ; 0              ; 1        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.slv_ack2 ; 0          ; 0              ; 1              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.mstr_ack ; 0          ; 1              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.stop     ; 1          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+
+
+Encoding Type:  One-Hot
++--------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |OLED128x32|i2c_master:u0|state                                                                                                  ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; Name           ; state.stop ; state.mstr_ack ; state.slv_ack2 ; state.rd ; state.wr ; state.slv_ack1 ; state.command ; state.start ; state.ready ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+; state.ready    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 0           ;
+; state.start    ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 1           ; 1           ;
+; state.command  ; 0          ; 0              ; 0              ; 0        ; 0        ; 0              ; 1             ; 0           ; 1           ;
+; state.slv_ack1 ; 0          ; 0              ; 0              ; 0        ; 0        ; 1              ; 0             ; 0           ; 1           ;
+; state.wr       ; 0          ; 0              ; 0              ; 0        ; 1        ; 0              ; 0             ; 0           ; 1           ;
+; state.rd       ; 0          ; 0              ; 0              ; 1        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.slv_ack2 ; 0          ; 0              ; 1              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.mstr_ack ; 0          ; 1              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
+; state.stop     ; 1          ; 0              ; 0              ; 0        ; 0        ; 0              ; 0             ; 0           ; 1           ;
++----------------+------------+----------------+----------------+----------+----------+----------------+---------------+-------------+-------------+
+
+
++-------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                    ;
++--------------------------------------------------+----------------------------------------------------+
+; Register name                                    ; Reason for Removal                                 ;
++--------------------------------------------------+----------------------------------------------------+
+; motor_out1~reg0                                  ; Stuck at GND due to stuck port data_in             ;
+; motor_out2~reg0                                  ; Stuck at GND due to stuck port data_in             ;
+; motor_pwm1~reg0                                  ; Stuck at GND due to stuck port data_in             ;
+; up_mdu3:u6|fout                                  ; Lost fanout                                        ;
+; up_mdu3:u6|cnt[0..14]                            ; Lost fanout                                        ;
+; c1015[7]                                         ; Stuck at GND due to stuck port data_in             ;
+; DHT11:u2|DHT11_BASIC:u0|hold_count[0,2..3,7..31] ; Stuck at GND due to stuck port data_in             ;
+; DHT11:u2|DHT11_BASIC:u0|keep_count[4..31]        ; Stuck at GND due to stuck port data_in             ;
+; RGB[1..15]                                       ; Merged with RGB[0]                                 ;
+; segout[0]~reg0                                   ; Stuck at GND due to stuck port data_in             ;
+; DHT11:u2|DHT11_BASIC:u0|keep_count[2]            ; Merged with DHT11:u2|DHT11_BASIC:u0|hold_count[4]  ;
+; fsm_back[4..6]                                   ; Merged with fsm_back[7]                            ;
+; RGB_data[0..6]                                   ; Merged with RGB_data[7]                            ;
+; word_buf[0][5]                                   ; Merged with sdbyte[0]                              ;
+; word_buf[0][6]                                   ; Merged with sdbyte[0]                              ;
+; sdbyte[2,4]                                      ; Merged with sdbyte[0]                              ;
+; word_buf[0][4]                                   ; Merged with sdbyte[0]                              ;
+; word_buf[0][3]                                   ; Merged with sdbyte[0]                              ;
+; word_buf[0][0]                                   ; Merged with sdbyte[0]                              ;
+; word_buf[0][1]                                   ; Merged with sdbyte[3]                              ;
+; word_buf[0][2]                                   ; Merged with sdbyte[3]                              ;
+; word_buf[6][2]                                   ; Merged with word_buf[6][0]                         ;
+; word_buf[5][2]                                   ; Merged with word_buf[6][0]                         ;
+; word_buf[6][3]                                   ; Merged with word_buf[6][0]                         ;
+; word_buf[6][4]                                   ; Merged with word_buf[6][0]                         ;
+; word_buf[3][6]                                   ; Merged with word_buf[6][0]                         ;
+; word_buf[3][3]                                   ; Merged with word_buf[6][0]                         ;
+; word_buf[6][6]                                   ; Merged with word_buf[6][0]                         ;
+; word_buf[2][4]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[2][5]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[3][4]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[2][1]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[2][2]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[3][7]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[2][6]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[2][0]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[6][5]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[6][7]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[5][0]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[5][1]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[5][3]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[5][4]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[5][5]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[5][6]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[5][7]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[4][0]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[4][4]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[4][5]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[4][6]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[4][7]                                   ; Merged with word_buf[6][1]                         ;
+; word_buf[3][5]                                   ; Merged with word_buf[4][1]                         ;
+; word_buf[2][7]                                   ; Merged with word_buf[4][1]                         ;
+; word_buf[2][3]                                   ; Merged with word_buf[4][1]                         ;
+; word_buf[3][2]                                   ; Merged with word_buf[4][1]                         ;
+; word_buf[4][2]                                   ; Merged with word_buf[4][1]                         ;
+; word_buf[4][3]                                   ; Merged with word_buf[4][1]                         ;
+; word_buf[3][0]                                   ; Merged with word_buf[4][1]                         ;
+; word_buf[3][1]                                   ; Merged with word_buf[4][1]                         ;
+; sd_t[1..4,9,19..20,22..23]                       ; Merged with sd_t[0]                                ;
+; sd_t[13,15..17]                                  ; Merged with sd_t[5]                                ;
+; sd_t[7,10..12,14,21]                             ; Merged with sd_t[6]                                ;
+; sd_t[18]                                         ; Merged with sd_t[8]                                ;
+; segr[2][1]                                       ; Merged with segr[2][0]                             ;
+; segr[1][1]                                       ; Merged with segr[2][0]                             ;
+; segr[1][0]                                       ; Merged with segr[2][0]                             ;
+; segr[0][1]                                       ; Merged with segr[2][0]                             ;
+; segr[1][2]                                       ; Merged with segr[2][0]                             ;
+; segr[0][0]                                       ; Merged with segr[2][0]                             ;
+; segr[0][2]                                       ; Merged with segr[2][0]                             ;
+; segr[0][3]                                       ; Merged with segr[2][0]                             ;
+; segr[1][3]                                       ; Merged with segr[2][0]                             ;
+; segr[2][3]                                       ; Merged with segr[2][0]                             ;
+; \main:s1[3]                                      ; Merged with \main:s1[2]                            ;
+; DHT11:u2|DHT11_BASIC:u0|keep_count[1]            ; Merged with DHT11:u2|DHT11_BASIC:u0|hold_count[6]  ;
+; DHT11:u2|DHT11_BASIC:u0|hold_count[1]            ; Merged with DHT11:u2|DHT11_BASIC:u0|hold_count[5]  ;
+; DHT11:u2|DHT11_BASIC:u0|keep_count[3]            ; Merged with DHT11:u2|DHT11_BASIC:u0|hold_count[5]  ;
+; DHT11:u2|DHT11_BASIC:u0|ret_count[4..30]         ; Merged with DHT11:u2|DHT11_BASIC:u0|ret_count[31]  ;
+; TSL2561:u1|data_wr[3]                            ; Merged with TSL2561:u1|data_wr[2]                  ;
+; TSL2561:u1|data_wr[5..6]                         ; Merged with TSL2561:u1|data_wr[4]                  ;
+; TSL2561:u1|addr[3..5]                            ; Merged with TSL2561:u1|addr[0]                     ;
+; TSL2561:u1|addr[2,6]                             ; Merged with TSL2561:u1|addr[1]                     ;
+; i2c_master:u0|addr_rw[1..5]                      ; Merged with i2c_master:u0|addr_rw[7]               ;
+; \sd178_dri:cnt_byte[2,4]                         ; Merged with \sd178_dri:cnt_byte[0]                 ;
+; word_buf[6][1]                                   ; Merged with word_buf[6][0]                         ;
+; sd_t[6]                                          ; Merged with sd_t[0]                                ;
+; sd_t[8]                                          ; Merged with sd_t[5]                                ;
+; segr[2][2]                                       ; Merged with segr[2][0]                             ;
+; DHT11:u2|DHT11_BASIC:u0|main_count[10..30]       ; Merged with DHT11:u2|DHT11_BASIC:u0|main_count[31] ;
+; DHT11:u2|DHT11_BASIC:u0|main_count[8]            ; Merged with DHT11:u2|DHT11_BASIC:u0|main_count[9]  ;
+; DHT11:u2|DHT11_BASIC:u0|main_count[5..6]         ; Merged with DHT11:u2|DHT11_BASIC:u0|main_count[7]  ;
+; TSL2561:u1|i2c_master:u0|addr_rw[2..3]           ; Merged with TSL2561:u1|i2c_master:u0|addr_rw[7]    ;
+; TSL2561:u1|i2c_master:u0|addr_rw[1,4..5]         ; Merged with TSL2561:u1|i2c_master:u0|addr_rw[6]    ;
+; TSL2561:u1|i2c_master:u0|data_tx[4..5]           ; Merged with TSL2561:u1|i2c_master:u0|data_tx[6]    ;
+; TSL2561:u1|i2c_master:u0|data_tx[2]              ; Merged with TSL2561:u1|i2c_master:u0|data_tx[3]    ;
+; i2c_master:u0|addr_rw[7]                         ; Stuck at GND due to stuck port data_in             ;
+; segr[2][0]                                       ; Stuck at GND due to stuck port data_in             ;
+; \main:sound[0]                                   ; Stuck at GND due to stuck port data_in             ;
+; TSL2561:u1|addr[0]                               ; Stuck at VCC due to stuck port data_in             ;
+; TSL2561:u1|i2c_master:u0|addr_rw[6]              ; Stuck at VCC due to stuck port data_in             ;
+; TSL2561:u1|addr[1]                               ; Stuck at GND due to stuck port data_in             ;
+; TSL2561:u1|i2c_master:u0|addr_rw[7]              ; Stuck at GND due to stuck port data_in             ;
+; word_buf[6][0]                                   ; Stuck at GND due to stuck port data_in             ;
+; sdbyte[0]                                        ; Stuck at GND due to stuck port data_in             ;
+; sd_t[0]                                          ; Stuck at GND due to stuck port data_in             ;
+; word_buf[1][0]                                   ; Stuck at GND due to stuck port data_in             ;
+; \sd178_dri:cnt_byte[0]                           ; Stuck at GND due to stuck port data_in             ;
+; i2c_master:u0|addr_rw[6]                         ; Stuck at VCC due to stuck port data_in             ;
+; sd178_rw                                         ; Stuck at GND due to stuck port data_in             ;
+; \sd178_dri:s178[4]                               ; Stuck at GND due to stuck port data_in             ;
+; TSL2561:u1|data_wr[4]                            ; Stuck at GND due to stuck port data_in             ;
+; \main:s2[3]                                      ; Stuck at GND due to stuck port data_in             ;
+; DHT11:u2|DHT11_BASIC:u0|ret_count[31]            ; Stuck at GND due to stuck port data_in             ;
+; i2c_master:u0|addr_rw[0]                         ; Stuck at GND due to stuck port data_in             ;
+; TSL2561:u1|i2c_master:u0|data_tx[6]              ; Stuck at GND due to stuck port data_in             ;
+; \main:s[3..4]                                    ; Stuck at GND due to stuck port data_in             ;
+; DHT11:u2|DHT11_BASIC:u0|main_count[31]           ; Stuck at GND due to stuck port data_in             ;
+; seg_num~0                                        ; Stuck at GND due to stuck port clock               ;
+; seg_num~1                                        ; Stuck at GND due to stuck port clock               ;
+; seg_num~2                                        ; Stuck at GND due to stuck port clock               ;
+; seg_num~3                                        ; Stuck at GND due to stuck port clock               ;
+; seg_num~4                                        ; Stuck at GND due to stuck port clock               ;
+; seg_num~5                                        ; Stuck at GND due to stuck port clock               ;
+; seg_num~6                                        ; Stuck at GND due to stuck port clock               ;
+; seg_num~7                                        ; Stuck at GND due to stuck port clock               ;
+; seg_num~8                                        ; Stuck at GND due to stuck port clock               ;
+; seg_num~9                                        ; Stuck at GND due to stuck port clock               ;
+; seg_num~10                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~11                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~12                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~13                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~14                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~15                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~16                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~17                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~18                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~19                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~20                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~21                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~22                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~23                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~24                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~25                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~26                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~27                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~28                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~29                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~30                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~31                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~32                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~33                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~34                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~35                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~36                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~37                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~38                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~39                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~40                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~41                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~42                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~43                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~44                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~45                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~46                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~47                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~48                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~49                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~50                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~51                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~52                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~53                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~54                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~55                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~56                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~57                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~58                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~59                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~60                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~61                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~62                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~63                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~64                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~65                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~66                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~67                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~68                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~69                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~70                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~71                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~72                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~73                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~74                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~75                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~76                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~77                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~78                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~79                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~80                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~81                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~82                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~83                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~84                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~85                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~86                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~87                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~88                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~89                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~90                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~91                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~92                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~93                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~94                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~95                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~96                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~97                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~98                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~99                                       ; Stuck at GND due to stuck port clock               ;
+; seg_num~100                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~101                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~102                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~103                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~104                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~105                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~106                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~107                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~108                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~109                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~110                                      ; Stuck at GND due to stuck port clock               ;
+; seg_num~111                                      ; Stuck at GND due to stuck port clock               ;
+; \main:s1[2]                                      ; Stuck at GND due to stuck port data_in             ;
+; lx1[1..3]                                        ; Stuck at GND due to stuck port data_in             ;
+; segr[7][1]                                       ; Stuck at GND due to stuck port data_in             ;
+; segr[7][2]                                       ; Stuck at GND due to stuck port data_in             ;
+; segr[7][3]                                       ; Stuck at GND due to stuck port data_in             ;
+; \main:s1s[3]                                     ; Stuck at GND due to stuck port data_in             ;
+; Total Number of Removed Registers = 404          ;                                                    ;
++--------------------------------------------------+----------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Removed Registers Triggering Further Register Optimizations                                                ;
++---------------------------------------+---------------------------+----------------------------------------+
+; Register name                         ; Reason for Removal        ; Registers Removed due to This Register ;
++---------------------------------------+---------------------------+----------------------------------------+
+; motor_out1~reg0                       ; Stuck at GND              ; up_mdu3:u6|fout                        ;
+;                                       ; due to stuck port data_in ;                                        ;
+; \main:sound[0]                        ; Stuck at GND              ; word_buf[1][0]                         ;
+;                                       ; due to stuck port data_in ;                                        ;
+; sdbyte[0]                             ; Stuck at GND              ; \sd178_dri:cnt_byte[0]                 ;
+;                                       ; due to stuck port data_in ;                                        ;
+; DHT11:u2|DHT11_BASIC:u0|ret_count[31] ; Stuck at GND              ; DHT11:u2|DHT11_BASIC:u0|main_count[31] ;
+;                                       ; due to stuck port data_in ;                                        ;
+; \main:s[4]                            ; Stuck at GND              ; \main:s1[2]                            ;
+;                                       ; due to stuck port data_in ;                                        ;
+; lx1[1]                                ; Stuck at GND              ; segr[7][1]                             ;
+;                                       ; due to stuck port data_in ;                                        ;
+; lx1[2]                                ; Stuck at GND              ; segr[7][2]                             ;
+;                                       ; due to stuck port data_in ;                                        ;
+; lx1[3]                                ; Stuck at GND              ; segr[7][3]                             ;
+;                                       ; due to stuck port data_in ;                                        ;
++---------------------------------------+---------------------------+----------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 589   ;
+; Number of registers using Synchronous Clear  ; 100   ;
+; Number of registers using Synchronous Load   ; 72    ;
+; Number of registers using Asynchronous Clear ; 188   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 392   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; RES~reg0                                ; 2       ;
+; CS~reg0                                 ; 2       ;
+; SCL~reg0                                ; 4       ;
+; bit_cnt[1]                              ; 15      ;
+; bit_cnt[0]                              ; 30      ;
+; bit_cnt[2]                              ; 16      ;
+; i2c_master:u0|busy                      ; 7       ;
+; TSL2561:u1|i2c_master:u0|sda_int        ; 2       ;
+; i2c_master:u0|sda_int                   ; 2       ;
+; DHT11:u2|DHT11_BASIC:u0|data_out        ; 2       ;
+; DHT11:u2|DHT11_BASIC:u0|data_out_en     ; 2       ;
+; TSL2561:u1|i2c_master:u0|bit_cnt[0]     ; 22      ;
+; TSL2561:u1|i2c_master:u0|bit_cnt[2]     ; 22      ;
+; TSL2561:u1|i2c_master:u0|bit_cnt[1]     ; 24      ;
+; i2c_master:u0|bit_cnt[2]                ; 9       ;
+; i2c_master:u0|bit_cnt[1]                ; 18      ;
+; i2c_master:u0|bit_cnt[0]                ; 15      ;
+; TSL2561:u1|i2c_master:u0|busy           ; 18      ;
+; Total number of inverted registers = 18 ;         ;
++-----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                  ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                        ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+; 3:1                ; 8 bits    ; 16 LEs        ; 0 LEs                ; 16 LEs                 ; Yes        ; |OLED128x32|TSL2561:u1|i2c_master:u0|data_tx[6]   ;
+; 3:1                ; 9 bits    ; 18 LEs        ; 0 LEs                ; 18 LEs                 ; Yes        ; |OLED128x32|i2c_master:u0|data_tx[2]              ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 0 LEs                ; 6 LEs                  ; Yes        ; |OLED128x32|\sd178_dri:cnt_byte[1]                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; Yes        ; |OLED128x32|\main:s[4]                            ;
+; 4:1                ; 31 bits   ; 62 LEs        ; 31 LEs               ; 31 LEs                 ; Yes        ; |OLED128x32|DHT11:u2|DHT11_BASIC:u0|k[17]         ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 2 LEs                ; 6 LEs                  ; Yes        ; |OLED128x32|pb[0]                                 ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 21 LEs               ; 7 LEs                  ; Yes        ; |OLED128x32|segout[7]~reg0                        ;
+; 6:1                ; 7 bits    ; 28 LEs        ; 7 LEs                ; 21 LEs                 ; Yes        ; |OLED128x32|segout_2[4]~reg0                      ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |OLED128x32|DHT11:u2|DHT11_BASIC:u0|ret_count[2]  ;
+; 5:1                ; 2 bits    ; 6 LEs         ; 4 LEs                ; 2 LEs                  ; Yes        ; |OLED128x32|DHT11:u2|DHT11_BASIC:u0|ret_count[0]  ;
+; 6:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |OLED128x32|\key:x[1]                             ;
+; 6:1                ; 4 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |OLED128x32|ko[2]~reg0                            ;
+; 7:1                ; 2 bits    ; 8 LEs         ; 4 LEs                ; 4 LEs                  ; Yes        ; |OLED128x32|pb[2]                                 ;
+; 4:1                ; 2 bits    ; 4 LEs         ; 0 LEs                ; 4 LEs                  ; Yes        ; |OLED128x32|TSL2561:u1|addr[0]                    ;
+; 33:1               ; 26 bits   ; 572 LEs       ; 52 LEs               ; 520 LEs                ; Yes        ; |OLED128x32|\sd178_dri:t[19]                      ;
+; 33:1               ; 3 bits    ; 66 LEs        ; 24 LEs               ; 42 LEs                 ; Yes        ; |OLED128x32|\main:s[0]                            ;
+; 33:1               ; 20 bits   ; 440 LEs       ; 20 LEs               ; 420 LEs                ; Yes        ; |OLED128x32|segr[3][3]                            ;
+; 9:1                ; 3 bits    ; 18 LEs        ; 3 LEs                ; 15 LEs                 ; Yes        ; |OLED128x32|word_buf[1][5]                        ;
+; 19:1               ; 5 bits    ; 60 LEs        ; 10 LEs               ; 50 LEs                 ; Yes        ; |OLED128x32|word_buf[0][7]                        ;
+; 19:1               ; 2 bits    ; 24 LEs        ; 0 LEs                ; 24 LEs                 ; Yes        ; |OLED128x32|word_buf[6][0]                        ;
+; 34:1               ; 6 bits    ; 132 LEs       ; 6 LEs                ; 126 LEs                ; Yes        ; |OLED128x32|\sd178_dri:cnt_loop[0]                ;
+; 35:1               ; 4 bits    ; 92 LEs        ; 4 LEs                ; 88 LEs                 ; Yes        ; |OLED128x32|\main:s1s[0]                          ;
+; 7:1                ; 26 bits   ; 104 LEs       ; 26 LEs               ; 78 LEs                 ; Yes        ; |OLED128x32|TSL2561:u1|cnt_delay[15]              ;
+; 257:1              ; 25 bits   ; 4275 LEs      ; 100 LEs              ; 4175 LEs               ; Yes        ; |OLED128x32|delay_1[18]                           ;
+; 257:1              ; 15 bits   ; 2565 LEs      ; 15 LEs               ; 2550 LEs               ; Yes        ; |OLED128x32|add[14]                               ;
+; 11:1               ; 4 bits    ; 28 LEs        ; 8 LEs                ; 20 LEs                 ; Yes        ; |OLED128x32|word_buf[1][7]                        ;
+; 14:1               ; 4 bits    ; 36 LEs        ; 8 LEs                ; 28 LEs                 ; Yes        ; |OLED128x32|\main:sound[1]                        ;
+; 11:1               ; 3 bits    ; 21 LEs        ; 6 LEs                ; 15 LEs                 ; Yes        ; |OLED128x32|\main:sound[3]                        ;
+; 257:1              ; 16 bits   ; 2736 LEs      ; 16 LEs               ; 2720 LEs               ; Yes        ; |OLED128x32|address[2]                            ;
+; 38:1               ; 3 bits    ; 75 LEs        ; 27 LEs               ; 48 LEs                 ; Yes        ; |OLED128x32|\sd178_dri:s178[2]                    ;
+; 51:1               ; 2 bits    ; 68 LEs        ; 6 LEs                ; 62 LEs                 ; Yes        ; |OLED128x32|sdsub[1]                              ;
+; 51:1               ; 2 bits    ; 68 LEs        ; 4 LEs                ; 64 LEs                 ; Yes        ; |OLED128x32|sd_t[5]                               ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; Yes        ; |OLED128x32|DHT11:u2|DHT11_BASIC:u0|main_count[9] ;
+; 50:1               ; 4 bits    ; 132 LEs       ; 44 LEs               ; 88 LEs                 ; Yes        ; |OLED128x32|\main:s2[0]                           ;
+; 40:1               ; 24 bits   ; 624 LEs       ; 120 LEs              ; 504 LEs                ; Yes        ; |OLED128x32|\main:t[21]                           ;
+; 71:1               ; 3 bits    ; 141 LEs       ; 6 LEs                ; 135 LEs                ; Yes        ; |OLED128x32|fsm_back[1]                           ;
+; 16:1               ; 32 bits   ; 320 LEs       ; 32 LEs               ; 288 LEs                ; Yes        ; |OLED128x32|DHT11:u2|DHT11_BASIC:u0|count1[13]    ;
+; 38:1               ; 8 bits    ; 200 LEs       ; 24 LEs               ; 176 LEs                ; Yes        ; |OLED128x32|sd178_data_wr[1]                      ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |OLED128x32|TSL2561:u1|i2c_master:u0|bit_cnt[1]   ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |OLED128x32|i2c_master:u0|bit_cnt[1]              ;
+; 256:1              ; 3 bits    ; 510 LEs       ; 3 LEs                ; 507 LEs                ; Yes        ; |OLED128x32|bit_cnt[1]                            ;
+; 3:1                ; 6 bits    ; 12 LEs        ; 6 LEs                ; 6 LEs                  ; No         ; |OLED128x32|Mux483                                ;
+; 3:1                ; 2 bits    ; 4 LEs         ; 2 LEs                ; 2 LEs                  ; No         ; |OLED128x32|DHT11:u2|DHT11_BASIC:u0|main_count    ;
+; 8:1                ; 4 bits    ; 20 LEs        ; 16 LEs               ; 4 LEs                  ; No         ; |OLED128x32|Mux477                                ;
+; 36:1               ; 8 bits    ; 192 LEs       ; 16 LEs               ; 176 LEs                ; No         ; |OLED128x32|j                                     ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 8 LEs                ; 8 LEs                  ; No         ; |OLED128x32|TSL2561:u1|IICState                   ;
+; 12:1               ; 2 bits    ; 16 LEs        ; 6 LEs                ; 10 LEs                 ; No         ; |OLED128x32|TSL2561:u1|IICState                   ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------+
+
+
++------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: i2c_master:u0 ;
++----------------+----------+--------------------------------+
+; Parameter Name ; Value    ; Type                           ;
++----------------+----------+--------------------------------+
+; input_clk      ; 50000000 ; Signed Integer                 ;
+; bus_clk        ; 10000    ; Signed Integer                 ;
++----------------+----------+--------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: TSL2561:u1|i2c_master:u0 ;
++----------------+----------+-------------------------------------------+
+; Parameter Name ; Value    ; Type                                      ;
++----------------+----------+-------------------------------------------+
+; input_clk      ; 50000000 ; Signed Integer                            ;
+; bus_clk        ; 150000   ; Signed Integer                            ;
++----------------+----------+-------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 15             ; Untyped                ;
+; LPM_WIDTHD             ; 15             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_dbm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod5 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                ;
+; LPM_WIDTHD             ; 14             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_bbm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div0 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                ;
+; LPM_WIDTHD             ; 14             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_8jm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                ;
+; LPM_WIDTHD             ; 14             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_bbm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div3 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                ;
+; LPM_WIDTHD             ; 4              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_nhm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod4 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                ;
+; LPM_WIDTHD             ; 14             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_bbm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                ;
+; LPM_WIDTHD             ; 7              ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_rhm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod3 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                ;
+; LPM_WIDTHD             ; 14             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_bbm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Div1 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                ;
+; LPM_WIDTHD             ; 10             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_4jm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++------------------------------------------------------------------+
+; Parameter Settings for Inferred Entity Instance: lpm_divide:Mod2 ;
++------------------------+----------------+------------------------+
+; Parameter Name         ; Value          ; Type                   ;
++------------------------+----------------+------------------------+
+; LPM_WIDTHN             ; 14             ; Untyped                ;
+; LPM_WIDTHD             ; 14             ; Untyped                ;
+; LPM_NREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_DREPRESENTATION    ; UNSIGNED       ; Untyped                ;
+; LPM_PIPELINE           ; 0              ; Untyped                ;
+; LPM_REMAINDERPOSITIVE  ; TRUE           ; Untyped                ;
+; MAXIMIZE_SPEED         ; 5              ; Untyped                ;
+; CBXI_PARAMETER         ; lpm_divide_bbm ; Untyped                ;
+; CARRY_CHAIN            ; MANUAL         ; Untyped                ;
+; OPTIMIZE_FOR_SPEED     ; 5              ; Untyped                ;
+; AUTO_CARRY_CHAINS      ; ON             ; AUTO_CARRY             ;
+; IGNORE_CARRY_BUFFERS   ; OFF            ; IGNORE_CARRY           ;
+; AUTO_CASCADE_CHAINS    ; ON             ; AUTO_CASCADE           ;
+; IGNORE_CASCADE_BUFFERS ; OFF            ; IGNORE_CASCADE         ;
++------------------------+----------------+------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings Tables in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "up_mdu2:u5"                                                                         ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; Port ; Type   ; Severity ; Details                                                                             ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+; fout ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "DHT11:u2"                                                                            ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; Port  ; Type   ; Severity ; Details                                                                             ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+; hu    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; te    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; error ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++---------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "TSL2561:u1|i2c_master:u0"                                                                ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; Port      ; Type   ; Severity ; Details                                                                             ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+; ack_error ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++-----------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++----------------------------------------------------------------------------------------------------------------------+
+; Port Connectivity Checks: "i2c_master:u0"                                                                            ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; Port       ; Type   ; Severity ; Details                                                                             ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+; addr[4..0] ; Input  ; Info     ; Stuck at GND                                                                        ;
+; addr[6]    ; Input  ; Info     ; Stuck at GND                                                                        ;
+; addr[5]    ; Input  ; Info     ; Stuck at VCC                                                                        ;
+; data_rd    ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
+; ack_error  ; Output ; Info     ; Connected to dangling logic. Logic that only feeds a dangling port will be removed. ;
++------------+--------+----------+-------------------------------------------------------------------------------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus II Analysis & Synthesis
+    Info: Version 9.1 Build 350 03/24/2010 Service Pack 2 SJ Web Edition
+    Info: Processing started: Wed Oct 16 10:41:22 2019
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off OLED128x32 -c OLED128x32
+Info: Found 2 design units, including 1 entities, in source file oled128x32.vhd
+    Info: Found design unit 1: OLED128x32-beh
+    Info: Found entity 1: OLED128x32
+Info: Found 2 design units, including 1 entities, in source file i2c_master.vhd
+    Info: Found design unit 1: i2c_master-logic
+    Info: Found entity 1: i2c_master
+Info: Elaborating entity "OLED128x32" for the top level hierarchy
+Warning (10541): VHDL Signal Declaration warning at OLED128x32.vhd(23): used implicit default value for signal "debug" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at OLED128x32.vhd(315): object "HU_BUFF" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at OLED128x32.vhd(315): object "TE_BUFF" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at OLED128x32.vhd(316): object "DHT11_error" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at OLED128x32.vhd(342): object "sd178_data_rd" assigned a value but never read
+Warning (10036): Verilog HDL or VHDL warning at OLED128x32.vhd(361): object "clk_100hz" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at OLED128x32.vhd(366): used implicit default value for signal "mode_motor" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at OLED128x32.vhd(369): used implicit default value for signal "motor_speed" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10541): VHDL Signal Declaration warning at OLED128x32.vhd(370): used implicit default value for signal "motor_dir" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at OLED128x32.vhd(374): object "y" assigned a value but never read
+Warning (10541): VHDL Signal Declaration warning at OLED128x32.vhd(376): used implicit default value for signal "fsm_back2" because signal was never assigned a value or an explicit default value. Use of implicit default value may introduce unintended design optimizations.
+Warning (10036): Verilog HDL or VHDL warning at OLED128x32.vhd(384): object "we2" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at OLED128x32.vhd(415): signal "clk_1MHz" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10036): Verilog HDL or VHDL warning at OLED128x32.vhd(738): object "cnt2" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at OLED128x32.vhd(849): signal "clk_1MHz" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10034): Output port "LED[10..0]" at OLED128x32.vhd(31) has no driver
+Info: Elaborating entity "i2c_master" for hierarchy "i2c_master:u0"
+Warning: Using design file tsl2561.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: TSL2561-beh
+    Info: Found entity 1: TSL2561
+Info: Elaborating entity "TSL2561" for hierarchy "TSL2561:u1"
+Warning (10036): Verilog HDL or VHDL warning at tsl2561.vhd(45): object "ack_error" assigned a value but never read
+Info: Elaborating entity "i2c_master" for hierarchy "TSL2561:u1|i2c_master:u0"
+Warning: Using design file dht11.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: DHT11-beh
+    Info: Found entity 1: DHT11
+Info: Elaborating entity "DHT11" for hierarchy "DHT11:u2"
+Warning: Using design file dht11_basic.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: DHT11_BASIC-beh
+    Info: Found entity 1: DHT11_BASIC
+Info: Elaborating entity "DHT11_BASIC" for hierarchy "DHT11:u2|DHT11_BASIC:u0"
+Warning (10036): Verilog HDL or VHDL warning at dht11_basic.vhd(24): object "flag" assigned a value but never read
+Warning (10492): VHDL Process Statement warning at dht11_basic.vhd(47): signal "key" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at dht11_basic.vhd(191): signal "dat_out_temp1" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning (10492): VHDL Process Statement warning at dht11_basic.vhd(203): signal "dat_out_temp2" is read inside the Process Statement but isn't in the Process Statement's sensitivity list
+Warning: Using design file up_mdu2.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: up_mdu2-beh
+    Info: Found entity 1: up_mdu2
+Info: Elaborating entity "up_mdu2" for hierarchy "up_mdu2:u5"
+Warning: Using design file up_mdu3.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: up_mdu3-beh
+    Info: Found entity 1: up_mdu3
+Info: Elaborating entity "up_mdu3" for hierarchy "up_mdu3:u6"
+Warning: Using design file up_mdu4.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: up_mdu4-beh
+    Info: Found entity 1: up_mdu4
+Info: Elaborating entity "up_mdu4" for hierarchy "up_mdu4:u7"
+Warning: Using design file up_mdu5.vhd, which is not specified as a design file for the current project, but contains definitions for 2 design units and 1 entities in project
+    Info: Found design unit 1: up_mdu5-beh
+    Info: Found entity 1: up_mdu5
+Info: Elaborating entity "up_mdu5" for hierarchy "up_mdu5:u8"
+Warning: Using design file cmd_rom.v, which is not specified as a design file for the current project, but contains definitions for 1 design units and 1 entities in project
+    Info: Found entity 1: cmd_rom
+Info: Elaborating entity "cmd_rom" for hierarchy "cmd_rom:u9"
+Warning (10030): Net "romA.data_a" at cmd_rom.v(6) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "romA.waddr_a" at cmd_rom.v(6) has no driver or initial value, using a default initial value '0'
+Warning (10030): Net "romA.we_a" at cmd_rom.v(6) has no driver or initial value, using a default initial value '0'
+Info: Found 1 instances of uninferred RAM logic
+    Info: RAM logic "seg_num" is uninferred due to inappropriate RAM size
+Critical Warning: Memory depth (128) in the design file differs from memory depth (85) in the Memory Initialization File "OLED128x32.ram0_cmd_rom_565410ab.hdl.mif" -- setting initial value for remaining addresses to 0
+Info: Inferred 10 megafunctions from design logic
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod5"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div0"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod1"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div3"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod4"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div2"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod3"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Div1"
+    Info: Inferred divider/modulo megafunction ("lpm_divide") from the following logic: "Mod2"
+Info: Elaborated megafunction instantiation "lpm_divide:Mod0"
+Info: Instantiated megafunction "lpm_divide:Mod0" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "15"
+    Info: Parameter "LPM_WIDTHD" = "15"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_dbm.tdf
+    Info: Found entity 1: lpm_divide_dbm
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_bnh.tdf
+    Info: Found entity 1: sign_div_unsign_bnh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_19f.tdf
+    Info: Found entity 1: alt_u_div_19f
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_unc.tdf
+    Info: Found entity 1: add_sub_unc
+Info: Found 1 design units, including 1 entities, in source file db/add_sub_vnc.tdf
+    Info: Found entity 1: add_sub_vnc
+Info: Elaborated megafunction instantiation "lpm_divide:Mod5"
+Info: Instantiated megafunction "lpm_divide:Mod5" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "14"
+    Info: Parameter "LPM_WIDTHD" = "14"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_bbm.tdf
+    Info: Found entity 1: lpm_divide_bbm
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_9nh.tdf
+    Info: Found entity 1: sign_div_unsign_9nh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_t8f.tdf
+    Info: Found entity 1: alt_u_div_t8f
+Info: Elaborated megafunction instantiation "lpm_divide:Div0"
+Info: Instantiated megafunction "lpm_divide:Div0" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "14"
+    Info: Parameter "LPM_WIDTHD" = "14"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_8jm.tdf
+    Info: Found entity 1: lpm_divide_8jm
+Info: Elaborated megafunction instantiation "lpm_divide:Div3"
+Info: Instantiated megafunction "lpm_divide:Div3" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "14"
+    Info: Parameter "LPM_WIDTHD" = "4"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_nhm.tdf
+    Info: Found entity 1: lpm_divide_nhm
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_olh.tdf
+    Info: Found entity 1: sign_div_unsign_olh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_r5f.tdf
+    Info: Found entity 1: alt_u_div_r5f
+Info: Elaborated megafunction instantiation "lpm_divide:Div2"
+Info: Instantiated megafunction "lpm_divide:Div2" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "14"
+    Info: Parameter "LPM_WIDTHD" = "7"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_rhm.tdf
+    Info: Found entity 1: lpm_divide_rhm
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_slh.tdf
+    Info: Found entity 1: sign_div_unsign_slh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_26f.tdf
+    Info: Found entity 1: alt_u_div_26f
+Info: Elaborated megafunction instantiation "lpm_divide:Div1"
+Info: Instantiated megafunction "lpm_divide:Div1" with the following parameter:
+    Info: Parameter "LPM_WIDTHN" = "14"
+    Info: Parameter "LPM_WIDTHD" = "10"
+    Info: Parameter "LPM_NREPRESENTATION" = "UNSIGNED"
+    Info: Parameter "LPM_DREPRESENTATION" = "UNSIGNED"
+Info: Found 1 design units, including 1 entities, in source file db/lpm_divide_4jm.tdf
+    Info: Found entity 1: lpm_divide_4jm
+Info: Found 1 design units, including 1 entities, in source file db/sign_div_unsign_5nh.tdf
+    Info: Found entity 1: sign_div_unsign_5nh
+Info: Found 1 design units, including 1 entities, in source file db/alt_u_div_l8f.tdf
+    Info: Found entity 1: alt_u_div_l8f
+Warning: The following nodes have both tri-state and non-tri-state drivers
+    Warning: Inserted always-enabled tri-state buffer between "TSL2561_scl" and its non-tri-state driver.
+    Warning: Inserted always-enabled tri-state buffer between "SD178_scl" and its non-tri-state driver.
+Info: One or more bidirs are fed by always enabled tri-state buffers
+    Info: Fan-out of permanently enabled tri-state buffer feeding bidir "TSL2561_scl" is moved to its source
+    Info: Fan-out of permanently enabled tri-state buffer feeding bidir "SD178_scl" is moved to its source
+Info: Registers with preset signals will power-up high
+Info: DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning: TRI or OPNDRN buffers permanently enabled
+    Warning: Node "TSL2561_scl~synth"
+    Warning: Node "SD178_scl~synth"
+Warning: Output pins are stuck at VCC or GND
+    Warning (13410): Pin "debug" is stuck at GND
+    Warning (13410): Pin "segout[0]" is stuck at GND
+    Warning (13410): Pin "BL" is stuck at VCC
+    Warning (13410): Pin "LED[0]" is stuck at GND
+    Warning (13410): Pin "LED[1]" is stuck at GND
+    Warning (13410): Pin "LED[2]" is stuck at GND
+    Warning (13410): Pin "LED[3]" is stuck at GND
+    Warning (13410): Pin "LED[4]" is stuck at GND
+    Warning (13410): Pin "LED[5]" is stuck at GND
+    Warning (13410): Pin "LED[6]" is stuck at GND
+    Warning (13410): Pin "LED[7]" is stuck at GND
+    Warning (13410): Pin "LED[8]" is stuck at GND
+    Warning (13410): Pin "LED[9]" is stuck at GND
+    Warning (13410): Pin "LED[10]" is stuck at GND
+    Warning (13410): Pin "motor_out1" is stuck at GND
+    Warning (13410): Pin "motor_out2" is stuck at GND
+    Warning (13410): Pin "motor_pwm1" is stuck at GND
+Info: Timing-Driven Synthesis is running
+Info: 16 registers lost all their fanouts during netlist optimizations. The first 16 are displayed below.
+    Info: Register "up_mdu3:u6|fout" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[0]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[1]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[2]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[3]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[4]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[5]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[6]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[7]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[8]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[9]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[10]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[11]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[12]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[13]" lost all its fanouts during netlist optimizations.
+    Info: Register "up_mdu3:u6|cnt[14]" lost all its fanouts during netlist optimizations.
+Info: Found the following redundant logic cells in design
+    Info (17048): Logic cell "lpm_divide:Mod3|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider|add_sub_13_result_int[0]~0"
+    Info (17048): Logic cell "lpm_divide:Mod3|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider|op_12~18"
+    Info (17048): Logic cell "lpm_divide:Mod3|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider|add_sub_10_result_int[0]~22"
+    Info (17048): Logic cell "lpm_divide:Mod3|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider|add_sub_11_result_int[0]~24"
+    Info (17048): Logic cell "lpm_divide:Mod3|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider|add_sub_12_result_int[0]~26"
+    Info (17048): Logic cell "lpm_divide:Mod2|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider|op_4~0"
+    Info (17048): Logic cell "lpm_divide:Mod2|lpm_divide_bbm:auto_generated|sign_div_unsign_9nh:divider|alt_u_div_t8f:divider|op_3~18"
+Warning: Design contains 6 input pin(s) that do not drive logic
+    Warning (15610): No output dependent on input pin "sw[2]"
+    Warning (15610): No output dependent on input pin "sw[3]"
+    Warning (15610): No output dependent on input pin "sw[4]"
+    Warning (15610): No output dependent on input pin "sw[5]"
+    Warning (15610): No output dependent on input pin "sw[6]"
+    Warning (15610): No output dependent on input pin "sw[7]"
+Info: Implemented 2684 device resources after synthesis - the final resource count might be different
+    Info: Implemented 14 input pins
+    Info: Implemented 55 output pins
+    Info: Implemented 5 bidirectional pins
+    Info: Implemented 2610 logic cells
+Info: Quartus II Analysis & Synthesis was successful. 0 errors, 64 warnings
+    Info: Peak virtual memory: 252 megabytes
+    Info: Processing ended: Wed Oct 16 10:41:41 2019
+    Info: Elapsed time: 00:00:19
+    Info: Total CPU time (on all processors): 00:00:12
+
+

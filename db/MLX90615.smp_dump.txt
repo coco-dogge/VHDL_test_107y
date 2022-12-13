@@ -1,0 +1,46 @@
+
+State Machine - |MLX90615|IICState_last
+Name IICState_last.w5 IICState_last.w4 IICState_last.w3 IICState_last.w2 IICState_last.w1 IICState_last.d5 IICState_last.d4 IICState_last.d3 IICState_last.d2 IICState_last.d1 IICState_last.s3 IICState_last.s2 IICState_last.s1 IICState_last.s0 
+IICState_last.s0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+IICState_last.s1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+IICState_last.s2 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+IICState_last.s3 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+IICState_last.d1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+IICState_last.d2 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+IICState_last.d3 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+IICState_last.d4 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+IICState_last.d5 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+IICState_last.w1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+IICState_last.w2 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+IICState_last.w3 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+IICState_last.w4 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+IICState_last.w5 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |MLX90615|IICState
+Name IICState.w5 IICState.w4 IICState.w3 IICState.w2 IICState.w1 IICState.d5 IICState.d4 IICState.d3 IICState.d2 IICState.d1 IICState.s3 IICState.s2 IICState.s1 IICState.s0 
+IICState.s0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+IICState.s1 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+IICState.s2 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+IICState.s3 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+IICState.d1 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+IICState.d2 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+IICState.d3 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+IICState.d4 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+IICState.d5 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+IICState.w1 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+IICState.w2 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+IICState.w3 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+IICState.w4 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+IICState.w5 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |MLX90615|i2c_master:u0|state
+Name state.stop state.mstr_ack state.slv_ack2 state.rd state.wr state.slv_ack1 state.command state.start state.ready 
+state.ready 0 0 0 0 0 0 0 0 0 
+state.start 0 0 0 0 0 0 0 1 1 
+state.command 0 0 0 0 0 0 1 0 1 
+state.slv_ack1 0 0 0 0 0 1 0 0 1 
+state.wr 0 0 0 0 1 0 0 0 1 
+state.rd 0 0 0 1 0 0 0 0 1 
+state.slv_ack2 0 0 1 0 0 0 0 0 1 
+state.mstr_ack 0 1 0 0 0 0 0 0 1 
+state.stop 1 0 0 0 0 0 0 0 1 

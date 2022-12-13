@@ -1,0 +1,77 @@
+|RO_CNT
+clk => ud_cnt:cnt.clk
+clk => rci.CLK
+rst => rci~2.OUTPUTSELECT
+rst => ud_cnt:cnt.rst
+go => rci~1.IN0
+go => ud_cnt:cnt.nld
+done <= ud_cnt:cnt.rco
+d[0] => ud_cnt:cnt.d[0]
+d[1] => ud_cnt:cnt.d[1]
+d[2] => ud_cnt:cnt.d[2]
+d[3] => ud_cnt:cnt.d[3]
+d[4] => ud_cnt:cnt.d[4]
+d[5] => ud_cnt:cnt.d[5]
+d[6] => ud_cnt:cnt.d[6]
+d[7] => ud_cnt:cnt.d[7]
+d[8] => ud_cnt:cnt.d[8]
+d[9] => ud_cnt:cnt.d[9]
+
+
+|RO_CNT|ud_cnt:cnt
+clk => Qi[0].CLK
+clk => Qi[1].CLK
+clk => Qi[2].CLK
+clk => Qi[3].CLK
+clk => Qi[4].CLK
+clk => Qi[5].CLK
+clk => Qi[6].CLK
+clk => Qi[7].CLK
+clk => Qi[8].CLK
+clk => Qi[9].CLK
+rst => Qi~10.OUTPUTSELECT
+rst => Qi~11.OUTPUTSELECT
+rst => Qi~12.OUTPUTSELECT
+rst => Qi~13.OUTPUTSELECT
+rst => Qi~14.OUTPUTSELECT
+rst => Qi~15.OUTPUTSELECT
+rst => Qi~16.OUTPUTSELECT
+rst => Qi~17.OUTPUTSELECT
+rst => Qi~18.OUTPUTSELECT
+rst => Qi~19.OUTPUTSELECT
+ud => val~0.OUTPUTSELECT
+ud => val[9].OUTPUTSELECT
+ud => val[8].OUTPUTSELECT
+ud => val[7].OUTPUTSELECT
+ud => val[6].OUTPUTSELECT
+ud => val[5].OUTPUTSELECT
+ud => val[4].OUTPUTSELECT
+ud => val[3].OUTPUTSELECT
+ud => val[2].OUTPUTSELECT
+ud => val[1].OUTPUTSELECT
+ud => val[0].OUTPUTSELECT
+nld => Qi~0.OUTPUTSELECT
+nld => Qi~1.OUTPUTSELECT
+nld => Qi~2.OUTPUTSELECT
+nld => Qi~3.OUTPUTSELECT
+nld => Qi~4.OUTPUTSELECT
+nld => Qi~5.OUTPUTSELECT
+nld => Qi~6.OUTPUTSELECT
+nld => Qi~7.OUTPUTSELECT
+nld => Qi~8.OUTPUTSELECT
+nld => Qi~9.OUTPUTSELECT
+d[0] => Qi~9.DATAB
+d[1] => Qi~8.DATAB
+d[2] => Qi~7.DATAB
+d[3] => Qi~6.DATAB
+d[4] => Qi~5.DATAB
+d[5] => Qi~4.DATAB
+d[6] => Qi~3.DATAB
+d[7] => Qi~2.DATAB
+d[8] => Qi~1.DATAB
+d[9] => Qi~0.DATAB
+rci => Add1.IN10
+rci => Add0.IN10
+rco <= val~0.DB_MAX_OUTPUT_PORT_TYPE
+
+

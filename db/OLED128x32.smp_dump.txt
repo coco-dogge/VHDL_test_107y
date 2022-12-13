@@ -1,0 +1,44 @@
+
+State Machine - |OLED128x32|TSL2561:u1|IICState
+Name IICState.s11 IICState.s10 IICState.s9 IICState.s8 IICState.s7 IICState.s6 IICState.s5 IICState.s4 IICState.s3 IICState.s2 IICState.s1 IICState.s0 IICState.POWER_ON_5 IICState.POWER_ON_4 IICState.POWER_ON_3 IICState.POWER_ON_2 IICState.POWER_ON_1 
+IICState.POWER_ON_1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 
+IICState.POWER_ON_2 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 1 
+IICState.POWER_ON_3 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 1 
+IICState.POWER_ON_4 0 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 1 
+IICState.POWER_ON_5 0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 1 
+IICState.s0 0 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 1 
+IICState.s1 0 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 1 
+IICState.s2 0 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 1 
+IICState.s3 0 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 1 
+IICState.s4 0 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 1 
+IICState.s5 0 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 1 
+IICState.s6 0 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 1 
+IICState.s7 0 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 1 
+IICState.s8 0 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 1 
+IICState.s9 0 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+IICState.s10 0 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+IICState.s11 1 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 1 
+
+State Machine - |OLED128x32|TSL2561:u1|i2c_master:u0|state
+Name state.stop state.mstr_ack state.slv_ack2 state.rd state.wr state.slv_ack1 state.command state.start state.ready 
+state.ready 0 0 0 0 0 0 0 0 0 
+state.start 0 0 0 0 0 0 0 1 1 
+state.command 0 0 0 0 0 0 1 0 1 
+state.slv_ack1 0 0 0 0 0 1 0 0 1 
+state.wr 0 0 0 0 1 0 0 0 1 
+state.rd 0 0 0 1 0 0 0 0 1 
+state.slv_ack2 0 0 1 0 0 0 0 0 1 
+state.mstr_ack 0 1 0 0 0 0 0 0 1 
+state.stop 1 0 0 0 0 0 0 0 1 
+
+State Machine - |OLED128x32|i2c_master:u0|state
+Name state.stop state.mstr_ack state.slv_ack2 state.rd state.wr state.slv_ack1 state.command state.start state.ready 
+state.ready 0 0 0 0 0 0 0 0 0 
+state.start 0 0 0 0 0 0 0 1 1 
+state.command 0 0 0 0 0 0 1 0 1 
+state.slv_ack1 0 0 0 0 0 1 0 0 1 
+state.wr 0 0 0 0 1 0 0 0 1 
+state.rd 0 0 0 1 0 0 0 0 1 
+state.slv_ack2 0 0 1 0 0 0 0 0 1 
+state.mstr_ack 0 1 0 0 0 0 0 0 1 
+state.stop 1 0 0 0 0 0 0 0 1 

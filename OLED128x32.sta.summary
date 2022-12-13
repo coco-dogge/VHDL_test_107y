@@ -1,0 +1,197 @@
+------------------------------------------------------------
+TimeQuest Timing Analyzer Summary
+------------------------------------------------------------
+
+Type  : Slow 1200mV 85C Model Setup 'up_mdu4:u7|fout'
+Slack : -37.255
+TNS   : -1457.609
+
+Type  : Slow 1200mV 85C Model Setup 'ck'
+Slack : -7.059
+TNS   : -963.609
+
+Type  : Slow 1200mV 85C Model Setup 'DHT11:u2|clk_1M'
+Slack : -6.466
+TNS   : -543.323
+
+Type  : Slow 1200mV 85C Model Setup 'up_mdu5:u8|fout'
+Slack : -5.179
+TNS   : -361.311
+
+Type  : Slow 1200mV 85C Model Hold 'ck'
+Slack : -0.340
+TNS   : -0.741
+
+Type  : Slow 1200mV 85C Model Hold 'up_mdu4:u7|fout'
+Slack : 0.429
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'up_mdu5:u8|fout'
+Slack : 0.434
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Hold 'DHT11:u2|clk_1M'
+Slack : 0.435
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Recovery 'ck'
+Slack : -2.466
+TNS   : -67.572
+
+Type  : Slow 1200mV 85C Model Recovery 'DHT11:u2|clk_1M'
+Slack : -1.060
+TNS   : -7.420
+
+Type  : Slow 1200mV 85C Model Removal 'DHT11:u2|clk_1M'
+Slack : 1.543
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Removal 'ck'
+Slack : 2.557
+TNS   : 0.000
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'ck'
+Slack : -3.000
+TNS   : -345.010
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'up_mdu4:u7|fout'
+Slack : -1.487
+TNS   : -263.199
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'DHT11:u2|clk_1M'
+Slack : -1.487
+TNS   : -153.161
+
+Type  : Slow 1200mV 85C Model Minimum Pulse Width 'up_mdu5:u8|fout'
+Slack : -1.487
+TNS   : -117.473
+
+Type  : Slow 1200mV 0C Model Setup 'up_mdu4:u7|fout'
+Slack : -34.081
+TNS   : -1354.713
+
+Type  : Slow 1200mV 0C Model Setup 'ck'
+Slack : -6.441
+TNS   : -885.866
+
+Type  : Slow 1200mV 0C Model Setup 'DHT11:u2|clk_1M'
+Slack : -5.889
+TNS   : -498.370
+
+Type  : Slow 1200mV 0C Model Setup 'up_mdu5:u8|fout'
+Slack : -4.846
+TNS   : -336.503
+
+Type  : Slow 1200mV 0C Model Hold 'ck'
+Slack : -0.328
+TNS   : -0.710
+
+Type  : Slow 1200mV 0C Model Hold 'up_mdu4:u7|fout'
+Slack : 0.382
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'DHT11:u2|clk_1M'
+Slack : 0.383
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Hold 'up_mdu5:u8|fout'
+Slack : 0.383
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Recovery 'ck'
+Slack : -2.284
+TNS   : -62.176
+
+Type  : Slow 1200mV 0C Model Recovery 'DHT11:u2|clk_1M'
+Slack : -0.879
+TNS   : -6.153
+
+Type  : Slow 1200mV 0C Model Removal 'DHT11:u2|clk_1M'
+Slack : 1.407
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Removal 'ck'
+Slack : 2.289
+TNS   : 0.000
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'ck'
+Slack : -3.000
+TNS   : -345.010
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'up_mdu4:u7|fout'
+Slack : -1.487
+TNS   : -263.199
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'DHT11:u2|clk_1M'
+Slack : -1.487
+TNS   : -153.161
+
+Type  : Slow 1200mV 0C Model Minimum Pulse Width 'up_mdu5:u8|fout'
+Slack : -1.487
+TNS   : -117.473
+
+Type  : Fast 1200mV 0C Model Setup 'up_mdu4:u7|fout'
+Slack : -15.712
+TNS   : -547.294
+
+Type  : Fast 1200mV 0C Model Setup 'ck'
+Slack : -2.516
+TNS   : -290.769
+
+Type  : Fast 1200mV 0C Model Setup 'DHT11:u2|clk_1M'
+Slack : -2.190
+TNS   : -170.242
+
+Type  : Fast 1200mV 0C Model Setup 'up_mdu5:u8|fout'
+Slack : -1.702
+TNS   : -110.240
+
+Type  : Fast 1200mV 0C Model Hold 'ck'
+Slack : -0.335
+TNS   : -0.813
+
+Type  : Fast 1200mV 0C Model Hold 'up_mdu4:u7|fout'
+Slack : 0.164
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'DHT11:u2|clk_1M'
+Slack : 0.167
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Hold 'up_mdu5:u8|fout'
+Slack : 0.167
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Recovery 'ck'
+Slack : -0.668
+TNS   : -17.128
+
+Type  : Fast 1200mV 0C Model Recovery 'DHT11:u2|clk_1M'
+Slack : 0.101
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'DHT11:u2|clk_1M'
+Slack : 0.658
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Removal 'ck'
+Slack : 1.068
+TNS   : 0.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'ck'
+Slack : -3.000
+TNS   : -245.952
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'up_mdu4:u7|fout'
+Slack : -1.000
+TNS   : -177.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'DHT11:u2|clk_1M'
+Slack : -1.000
+TNS   : -103.000
+
+Type  : Fast 1200mV 0C Model Minimum Pulse Width 'up_mdu5:u8|fout'
+Slack : -1.000
+TNS   : -79.000
+
+------------------------------------------------------------

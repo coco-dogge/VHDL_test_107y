@@ -1,0 +1,91 @@
+Version 6.0 Build 178 04/27/2006 SJ Full Version
+36
+1891
+OFF
+OFF
+OFF
+OFF
+OFF
+FV_OFF
+Level2
+0
+0
+VRSM_ON
+VHSM_ON
+0
+-- Start Partition --
+-- End Partition --
+-- Start Library Paths --
+-- End Library Paths --
+-- Start VHDL Libraries --
+-- End VHDL Libraries --
+# entity
+ro_cnt
+# storage
+db|RO_CNT.(0).cnf
+db|RO_CNT.(0).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+RO_CNT.VHD
+e083728335fe447a615429b6f590cf9d
+4
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# user_parameter {
+size
+10
+PARAMETER_DEC
+DEF
+id
+0
+PARAMETER_DEC
+DEF
+}
+# hierarchies {
+|
+}
+# end
+# entity
+ud_cnt
+# storage
+db|RO_CNT.(1).cnf
+db|RO_CNT.(1).cnf
+# logic_option {
+AUTO_RAM_RECOGNITION
+ON
+}
+# case_insensitive
+# source_file
+UD_CNT.VHD
+8c7dfdb5accc23212cbbc73fb14669d8
+4
+# internal_option {
+AUTO_RESOURCE_SHARING
+OFF
+}
+# user_parameter {
+size
+10
+PARAMETER_DEC
+USR
+resd
+0
+PARAMETER_DEC
+USR
+ constraint(d)
+9 downto 0
+PARAMETER_STRING
+USR
+}
+# hierarchies {
+ud_cnt:cnt
+}
+# end
+# complete
+
